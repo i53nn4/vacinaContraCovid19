@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  node-react-js:
+    image: node_react_js
+    container_name: node_react_js
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      my-network:
+        ipv4_address: 172.16.240.100
+        ipv6_address: 2001:3984:4089::100
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/app'
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    stdin_open: true
+
+networks:
+  my-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.240.0/24
+        - subnet: "2001:3984:4089::/64"
