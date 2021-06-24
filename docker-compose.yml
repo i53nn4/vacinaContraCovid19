@@ -6,7 +6,7 @@ services:
     container_name: node_react_js
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: container-build/Dockerfile
     networks:
       my-network:
         ipv4_address: 172.16.240.100
