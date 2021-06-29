@@ -37,8 +37,11 @@ const Details: React.FC = () => {
 
         api.get(`vaccines?country=${params.details}`).then(response => {
             setCountry(response.data);
+        }).catch(error => {
+            console.log(error);
+        }).finally(() => {
             setLoading(false);
-        });
+        })
 
     }, [params.details]);
 
