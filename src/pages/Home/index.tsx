@@ -56,10 +56,9 @@ const Home: React.FC = () => {
             } else {
                 setMessageError('Ocorreu um erro na busca deste país, por favor escreve o nome do país em inglês');
             }
-
-            setLoading(false);
         } catch (err) {
             setMessageError('Ocorreu um erro');
+        } finally {
             setLoading(false);
         }
     }
